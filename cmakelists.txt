@@ -12,10 +12,11 @@ set(CMAKE_CXX_STANDARD 20)
 set(CMAKE_CXX_STANDARD_REQUIRED ON)
 
 # 添加头文件搜索目录
-# include_directories(
-    # ${CMAKE_SOURCE_DIR)/src/3rdparty/pcyyb_sdk/include
+include_directories(
+    ${CMAKE_SOURCE_DIR}/src/hash/include
+    ${CMAKE_SOURCE_DIR}/src/hash
     # ${CMAKE_CURRENT_BINARY_DIR}  
-# )
+)
 
 # 匹配文件
 file(GLOB HEADER_FILE ${PROJECT_SOURCE_DIR}/src/*.h)
@@ -23,3 +24,5 @@ file(GLOB SOURCE_FILE ${PROJECT_SOURCE_DIR}/src/*.cpp)
 
 # 链接可执行文件
 add_executable(${PROJECT_NAME} ${HEADER_FILE} ${SOURCE_FILE})
+
+# message(${CMAKE_SOURCE_DIR}/src/hash/include)
