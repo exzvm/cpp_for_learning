@@ -12,10 +12,9 @@ set(CMAKE_CXX_STANDARD 20)
 set(CMAKE_CXX_STANDARD_REQUIRED ON)
 
 # 添加头文件搜索目录
-# include_directories(
-    # ${CMAKE_SOURCE_DIR}/src/3rdparty/pcyyb_sdk/include
-    # ${CMAKE_CURRENT_BINARY_DIR}  
-# )
+include_directories(
+    ${CMAKE_SOURCE_DIR}/src/basic
+)
 
 # 匹配文件
 file(GLOB HEADER_FILE ${PROJECT_SOURCE_DIR}/src/*.h)
