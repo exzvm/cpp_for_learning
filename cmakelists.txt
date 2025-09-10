@@ -14,6 +14,7 @@ set(CMAKE_CXX_STANDARD_REQUIRED ON)
 # 添加头文件搜索目录
 include_directories(
     ${CMAKE_SOURCE_DIR}/src/basic
+    ${CMAKE_SOURCE_DIR}/src/design_patterns
 )
 
 # 匹配文件

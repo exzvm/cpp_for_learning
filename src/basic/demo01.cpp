@@ -1,6 +1,8 @@
 #include <iostream>
 #include <climits>
 
+int g_value = 42;   // 定义全局变量
+
 namespace basic {
 
 void RefAndPointer() {
@@ -59,7 +61,7 @@ void ConstExpr() {
   constexpr int m = n + 1;
   static constexpr int MOD = 1000000007;
 
-  constexpr int *p = nullptr; //常量指针 顶层const
+  constexpr int *p = nullptr; //常量指针 顶层const  相当于 int * const p = nullptr; 只不过加上了编译期常量属性。
   const int *q = nullptr; //指向常量的指针， 底层const
   //int *const q = nullptr; //顶层const
 }
