@@ -39,6 +39,9 @@ int main() {
   std::string big(2000000, 'x'); // 大字符串
   bar([big]() { std::cout << big.size() << std::endl; });
 
+  basic::funcPtr();
+  basic::smartPointer();
+
   //thread t1([]() {
   //  TaskQueue* taskQ = TaskQueue::getInstance();
   //  for (int i = 0; i < 100; ++i)

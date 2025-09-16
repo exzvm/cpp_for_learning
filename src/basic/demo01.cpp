@@ -1,5 +1,6 @@
 #include <iostream>
 #include <climits>
+#include <memory>
 
 int g_value = 42;   // 定义全局变量
 
@@ -77,4 +78,40 @@ public:
 
 int A::staticVar = 0;
 
+int add(int a, int b) {
+	return a + b;
+}
+
+int sub(int a, int b) {
+	return a - b;
+}
+
+void funcPtr() {
+	int (*operationPtr)(int, int);
+	operationPtr = &add;
+
+	int res = operationPtr(3, 9);
+	std::cout << "res=" << res << std::endl;
+
+	operationPtr = &sub;
+	res = operationPtr(3, 9);
+	std::cout << "res=" << res << std::endl;
+}
+
+void smartPointer() {
+	// 2种初始化方式
+	std::unique_ptr<int> p1 = std::make_unique<int>(42);
+	std::unique_ptr<int> p2(new int(33));
+
+	// std::unique_ptr<int> p3 = p1; // ❌ 错误，不能拷贝
+	std::unique_ptr<int> p4 = std::move(p1);
+	std::cout << *p4 << std::endl;
+
+
+	std::shared_ptr<int> p5 = std::make_shared<int>(20);
+	std::shared_ptr<int> p6 = p5; // 引用计数+1
+	std::cout << *p5 << ", count=" << p5.use_count() << std::endl; // 20, count=2
+}
+
 } // namespace::basic
+
